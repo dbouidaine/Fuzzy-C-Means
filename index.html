@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuzzy C-Means</title>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+<body class="container">
+
+    <center>
+
+        <h1>Implementation of Fuzzy C-Means algorithm for image segmentation</h1>
+
+        <br /><br /><br />
+        <h2>1. Load Image :</h2>
+        <div>
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupFile01">Upload a photo</label>
+                <input type="file" class="form-control" id="inputGroupFile01" accept="image/*" onchange="loadImage(event)">
+            </div>
+            <img id="image_show" width="100px"/>
+            <img id="image_real" hidden/>
+        </div>
+
+        <br /><br /><br />
+        <h2>2. Initialize Fuzzy C-Means parametres :</h2>
+        <div class="d-flex">
+            <div class="col-4">
+                <label for="num_clusters" class="form-label">Number of clusters (C)</label><br/>
+                <input id="num_clusters" type="number" class="form-number" min="1" value="1" step="1" pattern="[0-9]*">
+            </div>
+            <div class="col-4">
+                <label for="termination_criterion" class="form-label">Termination Criterion (epsilon)</label><br/>
+                <input id="termination_criterion" type="number" class="form-number" min="0.01" value="0.1" step="0.01">
+            </div>
+            <div class="col-4">
+                <label for="m_constant" class="form-label">The constant M</label><br/>
+                <input id="m_constant" type="number" class="form-number" min="1" value="1" step="0.1">
+            </div>
+        </div> <br />
+        <button id="construct_algo" type="button" class="btn btn-dark">Construct Algorithm</button>
+        <br /><br />
+        <div id="success_alert_construct_algo" hidden class="alert alert-success">
+            <strong>Success !</strong> Parametres have been initialized 
+        </div>
+          
+    </center>
+
+    <!-- Javascript libs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.4.0/math.js" integrity="sha512-aTebWe+xMF5sE7hrGSbJeDrYjgVwNAOH7CVBjzttZrEzv8payApPqLWjPa/mUee4fPF4mNsEh/FN5uyy4X8DyQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/gh/nicolaspanel/numjs@0.15.1/dist/numjs.min.js"></script>
+    <script
+        src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+        crossorigin="anonymous">
+    </script>
+    <script src="src/js/ImageUtils.js"></script>
+    <script src="src/js/Fuzzy-C-Means.js"></script>
+    <script src="index.js"></script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+</body>
+</html>
